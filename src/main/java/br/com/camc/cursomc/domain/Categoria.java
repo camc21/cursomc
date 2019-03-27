@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import br.com.camc.cursomc.domain.Produto;
+
 @Entity
 public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +23,7 @@ public class Categoria implements Serializable {
 	private Long idCategoria;
 	private String nome;
 	
+	@JsonManagedReference
 	@ManyToMany(mappedBy = "categorias")
 	List<Produto> produtos = new ArrayList<>();
 	
@@ -30,30 +35,6 @@ public class Categoria implements Serializable {
 		super();
 		this.idCategoria = idCategoria;
 		this.nome = nome;
-	}
-
-	public Long getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(Long idCategoria) {
-		this.idCategoria = idCategoria;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
 	}
 
 	@Override
@@ -81,5 +62,32 @@ public class Categoria implements Serializable {
 		return true;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Categoria [idCategoria=" + idCategoria + ", nome=" + nome + ", produtos=" + produtos + "]";
+	}
+
+	public Long getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Long idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
 }

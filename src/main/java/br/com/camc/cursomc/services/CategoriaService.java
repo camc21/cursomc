@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import br.com.camc.cursomc.domain.Categoria;
 import br.com.camc.cursomc.repositories.CategoriaRepository;
-import javassist.tools.rmi.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -17,6 +16,8 @@ public class CategoriaService {
 	
 	public Categoria buscar(Long id){
 		Optional<Categoria> obj = repo.findById(id);
-		return obj.orElse(null); 
+			return obj.orElseThrow(() -> new br.com.camc.cursomc.services.exceptions.ObjectNotFoundException(
+					"Objeto não encontrado Id: " + id
+					+ ", Tipo " + Categoria.class.getName()));
 	}
 }

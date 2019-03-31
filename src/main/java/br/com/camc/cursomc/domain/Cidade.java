@@ -15,6 +15,7 @@ public class Cidade implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+<<<<<<< HEAD
 	private Long id;
 	private String nome;
 	
@@ -68,6 +69,61 @@ public class Cidade implements Serializable{
 
 	public void setIdCidade(Long idCidade) {
 		this.id = idCidade;
+=======
+	private Long idCidade;
+	private String nome;
+	
+	@ManyToOne
+	@JoinColumn(name="idEstado")
+	private Estado estado;
+	
+	public Cidade() {
+	}
+
+	public Cidade(Long idCidade, String nome, Estado estado) {
+		super();
+		this.idCidade = idCidade;
+		this.nome = nome;
+		this.estado = estado;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idCidade == null) ? 0 : idCidade.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cidade other = (Cidade) obj;
+		if (idCidade == null) {
+			if (other.idCidade != null)
+				return false;
+		} else if (!idCidade.equals(other.idCidade))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Cidade [idCidade=" + idCidade + ", nome=" + nome + "]";
+	}
+
+	public Long getIdCidade() {
+		return idCidade;
+	}
+
+	public void setIdCidade(Long idCidade) {
+		this.idCidade = idCidade;
+>>>>>>> branch 'master' of https://github.com/camc21/cursomc.git
 	}
 
 	public String getNome() {

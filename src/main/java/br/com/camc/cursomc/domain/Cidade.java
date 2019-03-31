@@ -1,40 +1,35 @@
 package br.com.camc.cursomc.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import br.com.camc.cursomc.domain.Produto;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Categoria implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Cidade implements Serializable{
+	private static final long serialVersionUID = 8613544916583665486L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	
-	@JsonManagedReference
-	@ManyToMany(mappedBy = "categorias")
-	List<Produto> produtos = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name="idEstado")
+	private Estado estado;
 	
-	public Categoria() {
-		
+	public Cidade() {
 	}
 
-	public Categoria(Long id, String nome) {
+	public Cidade(Long idCidade, String nome, Estado estado) {
 		super();
-		this.id = id;
+		this.id = idCidade;
 		this.nome = nome;
+		this.estado = estado;
 	}
 
 	@Override
@@ -53,7 +48,7 @@ public class Categoria implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categoria other = (Categoria) obj;
+		Cidade other = (Cidade) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -61,18 +56,18 @@ public class Categoria implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Categoria [id=" + id + ", nome=" + nome + ", produtos=" + produtos + "]";
+		return "Cidade [idCidade=" + id + ", nome=" + nome + "]";
 	}
 
-	public Long getid() {
+	public Long getIdCidade() {
 		return id;
 	}
 
-	public void setid(Long id) {
-		this.id = id;
+	public void setIdCidade(Long idCidade) {
+		this.id = idCidade;
 	}
 
 	public String getNome() {
@@ -83,11 +78,12 @@ public class Categoria implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
+	public Estado getEstado() {
+		return estado;
 	}
 
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}	
+
 }

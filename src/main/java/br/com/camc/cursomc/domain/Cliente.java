@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import br.com.camc.cursomc.domain.enums.TipoCliente;
 
 @Entity
@@ -28,6 +30,7 @@ public class Cliente implements Serializable {
 	private String cpfOuCnpj;
 	private Integer tipoCliente;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy="cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
@@ -38,9 +41,9 @@ public class Cliente implements Serializable {
 	public Cliente() {
 	}
 	
-	public Cliente(Long idCliente, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente) {
+	public Cliente(Long id, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente) {
 		super();
-		this.id = idCliente;
+		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
@@ -74,16 +77,16 @@ public class Cliente implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cliente [idCliente=" + id + ", nome=" + nome + ", email=" + email + ", cpfOuCnpj=" + cpfOuCnpj
+		return "Cliente [id=" + id + ", nome=" + nome + ", email=" + email + ", cpfOuCnpj=" + cpfOuCnpj
 				+ ", tipoCliente=" + tipoCliente + "]";
 	}
 
-	public Long getIdCliente() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setIdCliente(Long idCliente) {
-		this.id = idCliente;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -133,4 +136,5 @@ public class Cliente implements Serializable {
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
 	}
+	
 }

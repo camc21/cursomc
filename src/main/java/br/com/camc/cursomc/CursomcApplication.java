@@ -6,24 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import br.com.camc.cursomc.domain.Categoria;
 import br.com.camc.cursomc.domain.Cidade;
-<<<<<<< HEAD
 import br.com.camc.cursomc.domain.Cliente;
 import br.com.camc.cursomc.domain.Endereco;
-=======
->>>>>>> branch 'master' of https://github.com/camc21/cursomc.git
 import br.com.camc.cursomc.domain.Estado;
 import br.com.camc.cursomc.domain.Produto;
 import br.com.camc.cursomc.domain.enums.TipoCliente;
 import br.com.camc.cursomc.repositories.CategoriaRepository;
 import br.com.camc.cursomc.repositories.CidadeRepository;
-<<<<<<< HEAD
 import br.com.camc.cursomc.repositories.ClienteRepository;
 import br.com.camc.cursomc.repositories.EnderecoRepository;
-=======
->>>>>>> branch 'master' of https://github.com/camc21/cursomc.git
 import br.com.camc.cursomc.repositories.EstadoRepository;
 import br.com.camc.cursomc.repositories.ProdutoRepository;
 
@@ -38,13 +31,10 @@ public class CursomcApplication implements CommandLineRunner {
 	EstadoRepository estadoRepository;
 	@Autowired
 	CidadeRepository cidadeRepository;
-<<<<<<< HEAD
 	@Autowired
 	ClienteRepository clienteRepository;
 	@Autowired
 	EnderecoRepository enderecoRepository;
-=======
->>>>>>> branch 'master' of https://github.com/camc21/cursomc.git
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -80,7 +70,7 @@ public class CursomcApplication implements CommandLineRunner {
 		estadoRepository.saveAll(Arrays.asList(est1,est2));
 		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
 		
-<<<<<<< HEAD
+
 		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com", "363.789.123-77", TipoCliente.PESSOAFISICA);
 		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
 		
@@ -91,9 +81,7 @@ public class CursomcApplication implements CommandLineRunner {
 		
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2));
-		
-=======
->>>>>>> branch 'master' of https://github.com/camc21/cursomc.git
+
 	}
 	
 	

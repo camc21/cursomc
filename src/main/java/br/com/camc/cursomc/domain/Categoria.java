@@ -41,7 +41,6 @@ public class Categoria implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-<<<<<<< HEAD
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
@@ -74,40 +73,6 @@ public class Categoria implements Serializable {
 
 	public void setid(Long id) {
 		this.id = id;
-=======
-		result = prime * result + ((idCategoria == null) ? 0 : idCategoria.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Categoria other = (Categoria) obj;
-		if (idCategoria == null) {
-			if (other.idCategoria != null)
-				return false;
-		} else if (!idCategoria.equals(other.idCategoria))
-			return false;
-		return true;
-	}
-	
-	@Override
-	public String toString() {
-		return "Categoria [idCategoria=" + idCategoria + ", nome=" + nome + ", produtos=" + produtos + "]";
-	}
-
-	public Long getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(Long idCategoria) {
-		this.idCategoria = idCategoria;
->>>>>>> branch 'master' of https://github.com/camc21/cursomc.git
 	}
 
 	public String getNome() {

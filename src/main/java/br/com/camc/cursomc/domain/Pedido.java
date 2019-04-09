@@ -2,6 +2,8 @@ package br.com.camc.cursomc.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.annotation.Generated;
 import javax.persistence.CascadeType;
@@ -32,6 +34,8 @@ public class Pedido implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="idEnderecoEntrega")
 	private Endereco enderecoDeEntrega;
+	
+	private Set<ItemPedido> itens = new HashSet<ItemPedido>();
 	
 	public Pedido() {
 		
@@ -109,8 +113,13 @@ public class Pedido implements Serializable {
 	public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
 		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
-	
-	
-	
+
+	public Set<ItemPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<ItemPedido> itens) {
+		this.itens = itens;
+	}
 	
 }

@@ -14,7 +14,7 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository repo;
 	
-	public Cliente buscar(Long id){
+	public Cliente find(Long id){
 		Optional<Cliente> obj = repo.findById(id);
 			return obj.orElseThrow(() -> new br.com.camc.cursomc.services.exceptions.ObjectNotFoundException(
 					"Objeto não encontrado Id: " + id

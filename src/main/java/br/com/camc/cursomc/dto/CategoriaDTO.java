@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.validation.annotation.Validated;
 
 import br.com.camc.cursomc.domain.Categoria;
 
